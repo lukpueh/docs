@@ -6,18 +6,27 @@ the scope of the in-toto project's
 [ROADMAP](https://github.com/in-toto/docs/blob/master/ROADMAP.md) for this
 year.
 
-## ITE
+## Cross-implementation interoperability
 
-- talk about ITE 4
+GO
+Adding ed25519 sigining https://github.com/in-toto/in-toto-golang/pull/48
+Fixing canonicalization https://github.com/in-toto/in-toto-golang/pull/50
+
+Java
+
+
+
+## ITE
 
 The TUF and in-toto ITE's had very little activity, as we've been working on
 other fronts lately. 
+For the last evaluation period we have presented two ITE drafts 
 - [ITE-2: Using TUF and in-toto to build compromise-resilient CI/CD](https://github.com/in-toto/ITE/pull/4)
-- [ITE-3: Real-world example of combining TUF and in-toto for packaging Datadog Agent integrations](
+- [ITE-3: Real-world example of combining TUF and in-toto for packaging DataDog Agent integrations](
 https://github.com/in-toto/ITE/pull/5)
 
-In addition, and as further evidence of our committment to integrating with
-SPDX, we have a new ITE to add to the family: 
+In addition, and as further evidence of our commitment to integrating with
+SPDX, we have a new ITE to add to the family:
 
 - [ITE-4: Add generic URI schemes for artifacts in in-toto metadata ](https://github.com/in-toto/ITE/pull/6)
 
@@ -29,10 +38,10 @@ as more rich elements, such as (you guessed right) SPDX elements, or CI actions
 
 ### Jenkins
 
-We have had very little activity on the Jenkins plugin side, mostly because the
-reduce featureset has had very little to update and/or fix. However, we are
+We have had very little activity on the Jenkins plug-in side, mostly because the
+reduced feature set has had very little to update and/or fix. However, we are
 brewing support for [Grafeas](https://github.com/grafeas/grafeas) as a
-transport. This way, the in-toto Jenkins plugin will be able to store in-toto
+transport. This way, the in-toto Jenkins plug-in will be able to store in-toto
 link metadata in a Grafeas server seamlessly. More to come on this front!
 
 ### Kubernetes components
@@ -54,16 +63,36 @@ submodule.
 ### Apt transport and rebuilders
 
 The apt transport and rebuilder saw a lot of work from Senior and Junior
-members of the team. The work was divided on three fronts.
+members of the team.
+
+- securesystemslib and in-toto have both been accepted into Debian testing and new downstream releases are constantly prepared.
+https://tracker.debian.org/pkg/python-securesystemslib
+https://tracker.debian.org/pkg/in-toto
+
+- We are working hard on getting the debian apt-transport into the Debian repository and fixing bugs on the go (https://github.com/in-toto/apt-transport-in-toto/pull/26) [TODO: see mail to vagrant]
 
 - Kristel Fung (@kristelfung) joined the team in a more-permanent fashion, and
   continued her work on making the rebuilder monitor more robust and to use the
   newer interface for buildinfos. We have continuously tested these changes on
   the rebuilder we host here at NYU.
-- On the second front, Lukas took the hard task of starting to package the
-  debian apt-transport into the Debian repositories. This way, setting up
-  in-toto for your debian machines will be very simple and provide a high
-  assurance case of package reproducibility.
+  https://salsa.debian.org/reproducible-builds/debian-rebuilder-setup/merge_requests/2
+
+- We attended the 5th reproducible builds summit, to discuss [TODO: See mail to justin]
+  with community (Arch Linux, Debian, F-Droid, GNU Guix, MirageOS,, etc.) and industry partners (Google, Huawei, Microsoft, etc.).
+  And brainstorm future collaborations.
+
+  https://reproducible-builds.org/events/Marrakesh2019/
+
+  [TODO: See mail to justin and santiago] 
+
+- More news from the reproducible builds community that feature in-toto
+
+https://reproducible-builds.org/reports/2019-09/
+https://reproducible-builds.org/reports/2019-10/
+https://reproducible-builds.org/reports/2019-12/
+
+
+
 
 ### Kubesec integration
 
